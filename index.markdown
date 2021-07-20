@@ -236,6 +236,46 @@ Construct a program by dragging&amp;dropping and reordering lines. The construct
   });
 })();
 </script>
+      
+      <div id="test1-sortableTrash" class="sortable-code"></div> 
+<div id="test1-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="test1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="test1-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "public class MyClass\n" +
+    "{\n" +
+    "	&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String [] args)\n" +
+    "    &nbsp;&nbsp;&nbsp;&nbsp;{\n" +
+    "    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(\"The is a test.\");\n" +
+    "    &nbsp;&nbsp;&nbsp;&nbsp;}\n" +
+    "}\n" +
+    "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.printline(\"This is a test.\"); #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "test1-sortable",
+    "max_wrong_lines": 2,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "trashId": "test1-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#test1-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#test1-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
 
 ### Implementation Notes
 
