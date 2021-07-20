@@ -60,32 +60,20 @@ Construct a program that swaps the values of variables <code>x</code> and <code>
 </p>
 <script type="text/javascript">
 (function(){
-  var initial = "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
-    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
-    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$";
+  var initial = "test something\n" +
+    "  here\n" +
+    "put more\n" +
+    "  now\n" +
+    "not this #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p2-sortable",
-    "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.VariableCheckGrader,
+    "sortableId": "test-sortable",
+    "max_wrong_lines": 1,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": true,
-    "x_indent": 50,
+    "x_indent": 30,
     "lang": "en",
-    "trashId": "p2-sortableTrash",
-    "vartests": [
-        {
-            "message": "Testing with initial variable values x = 3 and y = 4",
-            "initcode": "x = 3\ny = 4",
-            "code": "",
-            "variables": {}
-        },
-        {
-            "message": "Testing with initial variable values x = 0 and y = 2",
-            "initcode": "x = 0\ny = 2",
-            "code": "",
-            "variables": {}
-        }
-    ]
+    "trashId": "test-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
