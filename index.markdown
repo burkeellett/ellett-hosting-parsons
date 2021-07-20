@@ -198,43 +198,41 @@ Print out "I am a Java program" three times using a for loop.
 ## Parsons 5 (Turtle Grader)
 Construct a program by dragging&amp;dropping and reordering lines. The constructed program should draw a triangle like shown below.
 
-<div id="p5-sortableTrash" class="sortable-code"></div>
-<div id="p5-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p5-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p5-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
+<div id="U01.1-sortableTrash" class="sortable-code"></div> 
+<div id="U01.1-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="U01.1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="U01.1-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
 (function(){
-  var initial = "REPEAT 3 TIMES\n" +
-    "  forward(100)\n" +
-    "  left(120)\n" +
-    "ENDREPEAT";
+  var initial = "test something\n" +
+    "  here\n" +
+    "put more\n" +
+    "  now\n" +
+    "not this #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p5-sortable",
+    "sortableId": "U01.1-sortable",
     "max_wrong_lines": 1,
-    "grader": ParsonsWidget._graders.TurtleGrader,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": true,
-    "x_indent": 50,
+    "x_indent": 30,
     "lang": "en",
-    "trashId": "p5-sortableTrash",
-    "executable_code": "for i in range(0,3):\nmyTurtle.forward(100)\nmyTurtle.left(120)\npass",
-    "programmingLang": "pseudo",
-    "turtleModelCode": "modelTurtle.forward(100)\nmodelTurtle.left(120)\nmodelTurtle.forward(100)\nmodelTurtle.left(120)\nmodelTurtle.forward(100)\nmodelTurtle.left(120)",
+    "trashId": "U01.1-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#p5-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p5-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
+  $("#U01.1-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#U01.1-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
 </script>
 
 ### Implementation Notes
