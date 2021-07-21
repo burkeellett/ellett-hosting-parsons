@@ -20,7 +20,7 @@ Re-arrange the blocks below so they print out "Hello World!"
 <script type="text/javascript">
 (function() {
   var initial = "print(\"Hello\")\n" +
-    "print(\" \")\n" +
+    "print(\" \") \nkdjfal;k" +
     "print(\"World\")\n" +
     "print(\"!\")";
   var parsonsPuzzle = new ParsonsWidget({
