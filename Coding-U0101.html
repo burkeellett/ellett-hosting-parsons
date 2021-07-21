@@ -50,76 +50,92 @@ title: Parsons Template name
 </script>
 
 <hr>
-<h2><center><u>Puzzle Template Name</u></center></h2>
-<h3>Puzzle Template Directions</h3>
-<div id="p1-sortableTrash" class="sortable-code"></div>
-<div id="p1-sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-<p>
-    <input id="p1-feedbackLink" value="Get Feedback" type="button" />
-    <input id="p1-newInstanceLink" value="Reset Problem" type="button" />
-</p>
-<script type="text/javascript">
-(function() {
-  var initial = "print(\"Hello\")\n" +
-    "print(\" \")\n" +
-    "print(\"World\")\n" +
-    "print(\"!\")";
-  var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "p1-sortable",
-    "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
-    "exec_limit": 2500,
-    "can_indent": false,
-    "x_indent": 50,
-    "lang": "en",
-    "trashId": "p1-sortableTrash"
-  });
-  parsonsPuzzle.init(initial);
-  parsonsPuzzle.shuffleLines();
-  $("#p1-newInstanceLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.shuffleLines();
-  });
-  $("#p1-feedbackLink").click(function(event){
-      event.preventDefault();
-      parsonsPuzzle.getFeedback();
-  });
-})();
-</script> 
-
-<hr>
-<h2><center><u>Puzzle Template Name 3</u></center></h2>
-<h3>Puzzle Template Directions</h3>
-<div id="U0102-sortableTrash" class="sortable-code"></div> 
-<div id="U0102-sortable" class="sortable-code"></div> 
+<h2><u>Coding Unit01 Parsons 02</u></h2>
+<h3>Arrange the code to create a Python turtle and move him forward 50 pixels.</h3>
+<div id="U01002-sortableTrash" class="sortable-code"></div> 
+<div id="U01002-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="U0102-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="U0102-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="U01002-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="U01002-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "test 2\n" +
-    " do somethind\n" +
-    "not this #distractor";
+  var initial = "import turtle<br><br>\n" +
+    "def main():\n" +
+    "  screen = turtle.Screen()<br>screen.setup(500, 500)<br>screen.bgcolor(\"RED\")\n" +
+    "  tim = turtle.Turtle()\n" +
+    "  tim.forward(50)\n" +
+    "<br><br>main()\n" +
+    "tim.move(50) #distractor\n" +
+    "tim = new Turtle() #distractor\n" +
+    "tim.turtle() #distractor\n" +
+    "tim.move_forward(50) #distractor";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "U0102-sortable",
-    "max_wrong_lines": 1,
+    "sortableId": "U01002-sortable",
+    "max_wrong_lines": 3,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
     "can_indent": true,
     "x_indent": 30,
     "lang": "en",
-    "trashId": "U0102-sortableTrash"
+    "trashId": "U01002-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#U0102-newInstanceLink").click(function(event){ 
+  $("#U01002-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#U0102-feedbackLink").click(function(event){ 
+  $("#U01002-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script> 
+
+<hr>
+<h2><u>Coding Unit01 Parsons 03</u></h2>
+<h3>Arrange the code to make a Python turtle leave a red line as he goes North for 100 pixels.</h3>
+<div id="U01003-sortableTrash" class="sortable-code"></div> 
+<div id="U01003-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="U01003-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="U01003-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "import turtle<br><br>\n" +
+    "def main():\n" +
+    "  screen = turtle.Screen()<br>screen.setup(500, 500)<br>screen.bgcolor(\"YELLOW\")\n" +
+    "  tim = turtle.Turtle()\n" +
+    "  tim.pencolor(\"RED\")\n" +
+    "  tim.left(90)\n" +
+    "  tim.forward(100)\n" +
+    "<br><br>main()\n" +
+    "tim.move(100) #distractor\n" +
+    "tim.right(90) #distractor\n" +
+    "tim.turn(turtle.NORTH) #distractor\n" +
+    "tim.move_forward(50) #distractor\n" +
+    "tim.pen(\"RED\") #distractor";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "U01003-sortable",
+    "max_wrong_lines": 3,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 30,
+    "lang": "en",
+    "trashId": "U01003-sortableTrash"
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#U01003-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#U01003-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
