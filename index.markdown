@@ -10,41 +10,40 @@ title: Multiple Parson's Problems on One Page
 ## Parsons 1 (Line Based Grader)
 Re-arrange the blocks below so they print out "Hello World!"
 
-<div id="test-sortableTrash" class="sortable-code"></div> 
-<div id="test-sortable" class="sortable-code"></div> 
-<div style="clear:both;"></div> 
-<p> 
-    <input id="test-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="test-newInstanceLink" value="Reset Problem" type="button" /> 
-</p> 
-<script type="text/javascript"> 
-(function(){
-  var initial = "test something\n" +
-    "  here\n" +
-    "put more\n" +
-    "  now\n" +
-    "not this #distractor";
+<div id="p1-sortableTrash" class="sortable-code"></div>
+<div id="p1-sortable" class="sortable-code"></div>
+<div style="clear:both;"></div>
+<p>
+    <input id="p1-feedbackLink" value="Get Feedback" type="button" />
+    <input id="p1-newInstanceLink" value="Reset Problem" type="button" />
+</p>
+<script type="text/javascript">
+(function() {
+  var initial = "print(\"Hello\")\n" +
+    "print(\" \")\n" +
+    "print(\"World\")\n" +
+    "print(\"!\")";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "test-sortable",
-    "max_wrong_lines": 1,
+    "sortableId": "p1-sortable",
+    "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
-    "can_indent": true,
-    "x_indent": 30,
+    "can_indent": false,
+    "x_indent": 50,
     "lang": "en",
-    "trashId": "test-sortableTrash"
+    "trashId": "p1-sortableTrash"
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#test-newInstanceLink").click(function(event){ 
-      event.preventDefault(); 
-      parsonsPuzzle.shuffleLines(); 
-  }); 
-  $("#test-feedbackLink").click(function(event){ 
-      event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
-  }); 
-})(); 
+  $("#p1-newInstanceLink").click(function(event){
+      event.preventDefault();
+      parsonsPuzzle.shuffleLines();
+  });
+  $("#p1-feedbackLink").click(function(event){
+      event.preventDefault();
+      parsonsPuzzle.getFeedback();
+  });
+})();
 </script>
 
 
@@ -60,20 +59,32 @@ Construct a program that swaps the values of variables <code>x</code> and <code>
 </p>
 <script type="text/javascript">
 (function(){
-  var initial = "test something\n" +
-    "  here\n" +
-    "put more\n" +
-    "  now\n" +
-    "not this #distractor";
+  var initial = "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
+    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
+    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "test-sortable",
-    "max_wrong_lines": 1,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "sortableId": "p2-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.VariableCheckGrader,
     "exec_limit": 2500,
     "can_indent": true,
-    "x_indent": 30,
+    "x_indent": 50,
     "lang": "en",
-    "trashId": "test-sortableTrash"
+    "trashId": "p2-sortableTrash",
+    "vartests": [
+        {
+            "message": "Testing with initial variable values x = 3 and y = 4",
+            "initcode": "x = 3\ny = 4",
+            "code": "",
+            "variables": {}
+        },
+        {
+            "message": "Testing with initial variable values x = 0 and y = 2",
+            "initcode": "x = 0\ny = 2",
+            "code": "",
+            "variables": {}
+        }
+    ]
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
@@ -187,41 +198,43 @@ Print out "I am a Java program" three times using a for loop.
 ## Parsons 5 (Turtle Grader)
 Construct a program by dragging&amp;dropping and reordering lines. The constructed program should draw a triangle like shown below.
 
-<div id="U01.1-sortableTrash" class="sortable-code"></div> 
-<div id="U01.1-sortable" class="sortable-code"></div> 
-<div style="clear:both;"></div> 
-<p> 
-    <input id="U01.1-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="U01.1-newInstanceLink" value="Reset Problem" type="button" /> 
-</p> 
-<script type="text/javascript"> 
+<div id="p5-sortableTrash" class="sortable-code"></div>
+<div id="p5-sortable" class="sortable-code"></div>
+<div style="clear:both;"></div>
+<p>
+    <input id="p5-feedbackLink" value="Get Feedback" type="button" />
+    <input id="p5-newInstanceLink" value="Reset Problem" type="button" />
+</p>
+<script type="text/javascript">
 (function(){
-  var initial = "test something\n" +
-    "  here\n" +
-    "put more\n" +
-    "  now\n" +
-    "not this #distractor";
+  var initial = "REPEAT 3 TIMES\n" +
+    "  forward(100)\n" +
+    "  left(120)\n" +
+    "ENDREPEAT";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "U01.1-sortable",
+    "sortableId": "p5-sortable",
     "max_wrong_lines": 1,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "grader": ParsonsWidget._graders.TurtleGrader,
     "exec_limit": 2500,
     "can_indent": true,
-    "x_indent": 30,
+    "x_indent": 50,
     "lang": "en",
-    "trashId": "U01.1-sortableTrash"
+    "trashId": "p5-sortableTrash",
+    "executable_code": "for i in range(0,3):\nmyTurtle.forward(100)\nmyTurtle.left(120)\npass",
+    "programmingLang": "pseudo",
+    "turtleModelCode": "modelTurtle.forward(100)\nmodelTurtle.left(120)\nmodelTurtle.forward(100)\nmodelTurtle.left(120)\nmodelTurtle.forward(100)\nmodelTurtle.left(120)",
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#U01.1-newInstanceLink").click(function(event){ 
-      event.preventDefault(); 
-      parsonsPuzzle.shuffleLines(); 
-  }); 
-  $("#U01.1-feedbackLink").click(function(event){ 
-      event.preventDefault(); 
-      parsonsPuzzle.getFeedback(); 
-  }); 
-})(); 
+  $("#p5-newInstanceLink").click(function(event){
+      event.preventDefault();
+      parsonsPuzzle.shuffleLines();
+  });
+  $("#p5-feedbackLink").click(function(event){
+      event.preventDefault();
+      parsonsPuzzle.getFeedback();
+  });
+})();
 </script>
 
 ### Implementation Notes
@@ -232,3 +245,4 @@ If want each problem to be it's own page, you can use relative path links at the
 
 ### Example Next Link
 [Next](./parsons/example1.html)
+
