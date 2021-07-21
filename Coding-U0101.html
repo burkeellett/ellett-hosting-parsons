@@ -18,14 +18,14 @@ title: Parsons Template name
 </p> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "import turtle \n \n \n\n" +
+  var initial = "import turtle<br><br>\n" +
     "def main():\n" +
     "  screen = turtle.Screen()\n" +
-    "  screen.setup(500, 500) \nscreen.bgcolor(&quot;RED&quot;)\n" +
-    "\n \n main()\n" +
+    "  screen.setup(500, 500)<br>screen.bgcolor(\"RED\")\n" +
+    "<br><br>main()\n" +
     "func main() #distractor\n" +
-    "\n\ncall main() #distractor\n" +
-    "screen.size(500, 500)\nscreen.bgcolor(&quot;RED&quot;) #distractor";
+    "<br>call main() #distractor\n" +
+    "screen.size(500, 500)<br>screen.bgcolor(\"RED\") #distractor";
   var parsonsPuzzle = new ParsonsWidget({
     "sortableId": "U01001-sortable",
     "max_wrong_lines": 2,
